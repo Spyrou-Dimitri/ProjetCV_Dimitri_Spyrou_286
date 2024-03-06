@@ -1,5 +1,9 @@
 @import "reset";
+
 html {
+}
+.hidden {
+  display: none;
 }
 body {
   background-color: #000913;
@@ -13,21 +17,22 @@ abbr {
 .nav {
   border: 1px solid #707070;
   background-color: #111111;
-  display: flex;
+  display: inline-flex;
+  width: 100%;
   padding: 24px 0 24px 0;
   font-size: 16px;
-  top: 0px;
-  left: 0px;
-  position: relative;
+  position: fixed;
 
   &__mega-drop-down__button {
-    position: absolute;
     background: none;
-    z-index: 2;
+    z-index: 1;
     cursor: pointer;
+    margin-left: 4px;
+    display: inline-flex;
+
 
     &__logoArrow {
-      margin-bottom: 7px;
+      margin-top: 10px;
     }
   }
   &__mega-drop-down__button:hover {
@@ -36,13 +41,11 @@ abbr {
   &__mega-drop-down__wrapper {
 
     &__logoVeille {
-      margin-left: 4px;
-      z-index: 2;
     }
     &__logoArrow {
       margin-top: 7px;
       float: right;
-      z-index: 2;
+      z-index: 1;
 
     }
   }
@@ -59,8 +62,9 @@ abbr {
     color: black;
     transform: translate(-100%);
     transition: all 0.2s ease;
+    overflow-x: auto;
     &__items {
-        margin: 0 16px 0 16px;
+      margin: 0 16px 0 16px;
       &__title {
         background-color: #BABABA1A;
         font-weight: bold;
@@ -84,14 +88,46 @@ abbr {
 
     }
   }
-  &__mega-drop-down__button:active + .mega-drop-down__list {
+  &__mega-drop-down__button:focus + .mega-drop-down__list {
     transform: translate(0px);
   }
   &__monLogo {
-    margin-left: 117.75px;
+    margin-left: 18px;
   }
-}
+  &__language__wrapper {
 
-.hidden {
-  display: none;
+    margin-left: 40px;
+    position: relative;
+    margin-top: 5px;
+    &__button:focus + .nav__language__wrapper__list{
+      display: block;
+      &__logoEarth {
+      }
+    }
+    &__list {
+      position: absolute;
+      top: 50px;
+      right: -50px;
+      width: 200px;
+      background-color: white;
+      font-family: "MarkW05-Medium", Arial, sans-serif;
+      text-transform: uppercase;
+      border-radius: 2px;
+      display: none;
+      &__items {
+
+        &__links {
+          text-decoration: none;
+          color: #999999;
+          display: block;
+          padding: 20px;
+        }
+      }
+
+    }
+
+  }
+  &__language__wrapper {
+  }
+
 }
