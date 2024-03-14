@@ -391,13 +391,18 @@ abbr {
       &__button {
         background: none;
         border: none;
+        transition: 0.2s;
+
+
       }
       &__button:focus {
         border: 1px solid blue;
         transform: translateY(0px);
         transition: 0.2s;
       }
-      .buttonGames:focus
+      .buttonGames:focus {
+
+      }
 
     }
     &__items:hover {
@@ -532,4 +537,104 @@ abbr {
       background-color: red;
     }
   }
+}
+.socialMedia {
+  margin: 18px 0;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__items {
+      &:not(:first-child){
+        margin-left: 12px;
+      }
+    }
+    &__items a {
+      background-color: blue;
+      width: 48px;
+      min-height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+
+      & svg {
+        align-items: center;
+      }
+    }
+  }
+}
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0.5;
+  padding: 24px 0 20px;
+  &__logo {
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+  &__paragraph {
+    font-family: "MarkW05-Medium", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18.2px;
+    width: 71.5953307393%;
+    text-align: center;
+
+  }
+}
+.footerNav {
+  margin-bottom: 16px;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 91.7695473251%;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    flex-wrap: wrap;
+    &__items {
+      font-size: 13px;
+      margin:12px 0;
+      padding: 8px 16px;
+      letter-spacing: 1.04px;
+      line-height: 14.95px;
+      font-family: "MarkW05-Medium",  Arial, sans-serif;
+      text-transform: uppercase;
+      transition: all .2s linear;
+      font-weight: 700;
+      border-radius: 5px;
+
+    }
+    &__items a {
+      text-decoration: none;
+      color: #f9f9f9;
+    }
+    &__items:hover {
+      background-color: red;
+    }
+  }
+}
+.footerLogo {
+
+  &__list {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__items a {
+
+      display: block;
+      border-radius: 8px;
+      background: #292929;
+      padding: 8px 12px;
+    }
+  }
+}
+footer {
+  padding-bottom: 48px;
 }
