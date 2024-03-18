@@ -60,65 +60,80 @@ abbr {
 
     }
   }
-  .mega-drop-down__list {
-    display: flex;
+  .mega-drop-down__scroller {
     position: absolute;
-    flex-direction: column;
-    width: 100%;
     top: 0;
-    padding-top: 1.07142857143rem;
-    text-transform: uppercase;
-    line-height: 120%;
-    background-color: white;
-    color: black;
+    width: 100%;
+    height: 100vh;
     transform: translate(-100%);
     transition: 300ms, opacity 300ms;
-    overflow-y: auto;
+    overflow-y: scroll;
 
-    &__logo {
-      margin-left: 3.27198364008%;
-      margin-bottom: 25px;
-      &__wrapper {
+    .mega-drop-down__list {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1.07em;
+      text-transform: uppercase;
+      line-height: 120%;
+      background-color: white;
+      color: black;
 
-        &__arrow {
-          margin-bottom: 9px;
-          rotate: 180deg;
-        }
-      }
 
-    }
-    &__items {
-      margin: 0 16px 0 16px;
-      &__title {
-        background-color: #BABABA1A;
-        font-weight: bold;
-        letter-spacing: .08em;
-        padding: 12px;
-        border-radius: 6.4px;
-        &__logoArrow{
-          margin-top: 7px;
-          float: right;
-          z-index: 1;
-        }
-      }
-      .mega-drop-down__sublist {
-        &__items {
-          margin-left: 12px;
-          
+      &__logo {
+        margin-left: 3.27198364008%;
+        margin-bottom: 25px;
+        &__wrapper {
 
-          &__links {
-            display: block;
-            text-decoration: none;
-            color: #4A4A4A;
-            padding: 12px 0 12px 0;
-
+          &__arrow {
+            margin-bottom: 9px;
+            rotate: 180deg;
           }
         }
-      }
 
+      }
+      &__items {
+        margin: 0 16px 0 16px;
+
+        &__title {
+          background-color: #BABABA1A;
+          font-weight: bold;
+          letter-spacing: .08em;
+          padding: 12px;
+          border-radius: 6.4px;
+          position: relative;
+
+
+          &__logoArrow{
+            margin-top: 7px;
+            float: right;
+            z-index: 1;
+          }
+        }
+        &__checker {
+          width: 100%;
+          min-height: 40px;
+        }
+
+        .mega-drop-down__sublist {
+          &__items {
+            margin-left: 12px;
+
+
+            &__links {
+              display: block;
+              text-decoration: none;
+              color: #4A4A4A;
+              padding: 12px 0 12px 0;
+
+            }
+          }
+        }
+
+      }
     }
   }
-  &__mega-drop-down__checker:checked + .mega-drop-down__list {
+
+  &__mega-drop-down__checker:checked + .mega-drop-down__scroller {
     transform: translate(0px);
   }
   &__mega-drop-down__checker {
@@ -133,6 +148,7 @@ abbr {
     margin-left: auto;
     position: relative;
     margin-top: 5px;
+    z-index: 0;
     &__button:focus + .nav__language__wrapper__list{
       display: block;
       &__logoEarth {
@@ -175,119 +191,128 @@ abbr {
       appearance: none;
 
     }
-    &__checker:checked + .nav__burgerMenu__list {
+    &__checker:checked + .burgerMenu__scroller {
       transform: translate(0px);
       z-index: 2;
     }
+    .burgerMenu__scroller {
+      width: 100%;
+      height: 100vh;
+      overflow-y: scroll;
+      top: 0;
+      left: 0;
+      position: absolute;
+      transform: translate(100%);
+      transition: 300ms, opacity 300ms;
+
+
+
+      .burgerMenu__list {
+
+        background-color: #1f1f1f;
+        text-align: center;
+        &__items {
+
+          &__searchBar {
+            width: 91%;
+            border-style: hidden;
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            min-height: 40px;
+            border-radius: 30px;
+            background: rgba(128, 128, 128, .2);
+            margin-top: 20px;
+            margin-bottom: 21px;
+
+          }
+
+        }
+        &__items > a {
+          text-decoration: none;
+          color: white;
+          padding: 12px 18px;
+          display: block;
+          width: 90%;
+
+        }
+        &__items > a:hover {
+          background-color: gray;
+
+        }
+        &__items:not(.alignCenter){
+          text-align: left;
+          margin: 0 16px 8px 16px;
+          text-transform: uppercase;
+          line-height: 24px;
+          letter-spacing: 1.28px;
+        }
+        &__items > #monForm {
+          width: 88%;
+          min-height: 48px;
+          border-radius: 6.4px;
+          border-style: none;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-weight: 600;
+          background: rgba(128, 128, 128, .2);
+          color: white;
+          padding: 8px 16px;
+          margin-bottom: 12px;
+          font-size: 16px;
+        }
+        &__items > #recruter {
+          width: 88%;
+          min-height: 48px;
+          border-radius: 6.4px;
+          border-style: none;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          cursor: pointer;
+          font-weight: 600;
+          background: #0bc4e2;
+          color: black;
+          padding: 8px 16px;
+          margin-bottom: 12px;
+          font-size: 16px;
+
+        }
+        .drop-down {
+          &__items {
+            letter-spacing: normal;
+            line-height: 16px;
+            font-size: 14px;
+
+          }
+          &__items > a {
+            text-decoration: none;
+            color: gray;
+            display: block;
+            padding: 8px 16px;
+            margin: 8px 0 8px 0;
+
+          }
+          &__items > a:hover {
+            background-color: gray;
+            color: white;
+          }
+        }
+
+        .leaveBurgerMenu {
+          &__monLogo {
+            margin-top: 20px;
+            margin-right: 64.8176%;
+          }
+          &__croix {
+            margin-top: 20px;
+          }
+
+        }
+
+      }
+    }
   }
-  &__burgerMenu__list {
-    transform: translate(100%);
-    transition: 300ms, opacity 300ms;
-    background-color: #1f1f1f;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    &__items {
 
-      &__searchBar {
-        width: 91%;
-        border-style: hidden;
-        font-size: 16px;
-        letter-spacing: 1.5px;
-        min-height: 40px;
-        border-radius: 30px;
-        background: rgba(128, 128, 128, .2);
-        margin-top: 20px;
-        margin-bottom: 21px;
-
-      }
-
-    }
-    &__items > a {
-      text-decoration: none;
-      color: white;
-      padding: 12px 18px;
-      display: block;
-      width: 90%;
-
-    }
-    &__items > a:hover {
-      background-color: gray;
-
-    }
-    &__items:not(.alignCenter){
-      text-align: left;
-      margin: 0 16px 8px 16px;
-      text-transform: uppercase;
-      line-height: 24px;
-      letter-spacing: 1.28px;
-    }
-    &__items > #monForm {
-      width: 88%;
-      min-height: 48px;
-      border-radius: 6.4px;
-      border-style: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-weight: 600;
-      background: rgba(128, 128, 128, .2);
-      color: white;
-      padding: 8px 16px;
-      margin-bottom: 12px;
-      font-size: 16px;
-    }
-    &__items > #recruter {
-      width: 88%;
-      min-height: 48px;
-      border-radius: 6.4px;
-      border-style: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-weight: 600;
-      background: #0bc4e2;
-      color: black;
-      padding: 8px 16px;
-      margin-bottom: 12px;
-      font-size: 16px;
-
-    }
-    .drop-down {
-      &__items {
-        letter-spacing: normal;
-        line-height: 16px;
-        font-size: 14px;
-
-      }
-      &__items > a {
-        text-decoration: none;
-        color: gray;
-        display: block;
-        padding: 8px 16px;
-        margin: 8px 0 8px 0;
-
-      }
-      &__items > a:hover {
-        background-color: gray;
-        color: white;
-      }
-    }
-
-    .leaveBurgerMenu {
-      &__monLogo {
-        margin-top: 20px;
-        margin-right: 64.8176%;
-      }
-      &__croix {
-        margin-top: 20px;
-      }
-
-    }
-
-  }
 
 
 }
@@ -402,9 +427,9 @@ abbr {
         content: "";
         display: block;
         width: 80%;
+        margin-left: 5%;
         height: 1px;
         margin-bottom: 15px;
-        vertical-align: center;
         background-color: #707070;
       }
     }
