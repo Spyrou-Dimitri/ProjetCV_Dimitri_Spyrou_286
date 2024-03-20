@@ -21,6 +21,7 @@ abbr {
   display: flex;
   align-items: center;
   width: 100%;
+  z-index: 3;
   padding: 1.07142857143rem 0 1.07142857143rem 0;
   font-size: 16px;
   position: fixed;
@@ -330,12 +331,36 @@ abbr {
 
 }
 .presentation {
-  background-color: red;
+
+  &__backgroundProfil {
+    width: 100%;
+    filter: blur(8px);
+    position: relative;
+    padding-top: 85px;
+    &__photo {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  &__profil {
+    width: 100%;
+    &__photo {
+      max-width: 96%;
+      height: auto;
+      position: absolute;
+      top: 108px;
+      left: 16px;
+
+    }
+  }
   &__title {
+    top: 360px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
     font-family: "Beaufort for LOL", serif;
     font-size: 1rem;
     line-height: 1.1;
-
     letter-spacing: 2.4px;
     text-transform: uppercase;
     font-style: italic;
@@ -353,8 +378,11 @@ abbr {
 
   }
   &__wrapper {
+    position: absolute;
+    top: 400px;
+    left: 0;
     width: 96%;
-    background-color: #0bc4e2;
+    background: transparent;
     border: 1px solid blue;
     margin-left: 2%;
 
@@ -454,7 +482,7 @@ abbr {
   }
 }
 .passions {
-  margin-top: 6em;
+  margin-top: 28.5em;
   margin-left: auto;
   &__video {
 
@@ -607,6 +635,7 @@ abbr {
       font-family: "MarkW05-Medium",  Arial, sans-serif;
       text-transform: uppercase;
       transition: all .2s linear;
+      text-align: center;
       font-weight: 700;
       border-radius: 5px;
 
@@ -720,3 +749,8 @@ abbr {
 footer {
   padding-bottom: 48px;
 }
+
+
+
+
+
