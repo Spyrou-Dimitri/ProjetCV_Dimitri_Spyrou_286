@@ -56,7 +56,8 @@ abbr {
     &__logoVeille {
     }
     &__logoArrow {
-
+      float: right;
+      margin-top: 0.5em;
 
     }
   }
@@ -213,6 +214,15 @@ abbr {
         text-align: center;
         &__items {
 
+          font-weight: 600;
+          &__logoArrow {
+            float: right;
+            margin-top: 0.5em;
+          }
+          &__logoLinkOut {
+            float: right;
+            margin-top: 0.3em;
+          }
           &__searchBar {
             width: 91%;
             border-style: hidden;
@@ -280,8 +290,10 @@ abbr {
         .drop-down {
           &__items {
             letter-spacing: normal;
-            line-height: 16px;
+            line-height: 1em;
             font-size: 14px;
+            text-transform: capitalize;
+
 
           }
           &__items > a {
@@ -299,12 +311,13 @@ abbr {
         }
 
         .leaveBurgerMenu {
+
           &__monLogo {
-            margin-top: 20px;
-            margin-right: 64.8176%;
+            margin-top: 25px;
           }
           &__croix {
-            margin-top: 20px;
+            margin-top: 16px;
+            float: right;
           }
 
         }
